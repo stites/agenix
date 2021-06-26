@@ -1,4 +1,4 @@
-{ stdenv, rustPlatform, fetchFromGitHub, installShellFiles, darwin }:
+{ lib, stdenv, rustPlatform, fetchFromGitHub, installShellFiles, darwin }:
 
 rustPlatform.buildRustPackage rec {
   pname = "rage";
@@ -33,7 +33,7 @@ rustPlatform.buildRustPackage rec {
     installShellCompletion target/completions/*.{bash,fish,zsh}
   '';
 
-  meta = with stdenv.lib; {
+  meta = with lib; {
     description = "A simple, secure and modern encryption tool with small explicit keys, no config options, and UNIX-style composability";
     homepage = "https://github.com/str4d/rage";
     changelog = "https://github.com/str4d/rage/releases/tag/v${version}";
